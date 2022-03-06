@@ -7,7 +7,7 @@ use Firebase\JWT\Key;
 
 
 class MyJwt{
-    private static $_key = "example_key";
+    private static $_key = "a373e016-66b0-499b-b53d-49140ddef85e";
 
     public static function getToken($user) 
     {
@@ -28,7 +28,6 @@ class MyJwt{
     {
         $key = self::$_key;
 
-        $key = "example_key";
         $decoded = JWT::decode($token, new Key($key, 'HS256'));
         return $decoded;
     }
@@ -41,3 +40,11 @@ class MyJwt{
 
     }
 }
+
+
+// $user = [
+//     "name" => "mick"
+// ];
+// $token = MyJwt::getToken($user);
+// var_dump($token);
+// var_dump(MyJwt::decodeToken($token));
